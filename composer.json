@@ -6,5 +6,8 @@
             "email": "mail@alexander-hank.de"
         }
     ],
-    "require": {}
+    "require": {
+        "illuminate/support": "~5.2",
+        "php": ">=5.6"
+    }
 }
