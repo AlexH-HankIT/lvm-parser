@@ -1,0 +1,10 @@
+{
+    "name": "mrcrankhank/lvm-parser",
+    "authors": [
+        {
+            "name": "MrCrankHank",
+            "email": "mail@alexander-hank.de"
+        }
+    ],
+    "require": {}
+}
