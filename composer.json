@@ -1,5 +1,7 @@
 {
     "name": "mrcrankhank/lvm-parser",
+    "type": "library",
+    "description": "A parser for the output of the pvs/vgs/lvs commands",
     "authors": [
         {
             "name": "MrCrankHank",
@@ -9,5 +11,18 @@
     "require": {
         "illuminate/support": "~5.2",
         "php": ">=5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "MrCrankHank\\LvmParser\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MrCrankHank\\LvmParser\\": "tests"
+        }
     }
 }
