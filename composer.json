@@ -1,6 +1,7 @@
 {
     "name": "mrcrankhank/lvm-parser",
     "type": "library",
+    "license": "Apache License 2.0",
     "description": "A parser for the output of the pvs/vgs/lvs commands",
     "authors": [
         {
