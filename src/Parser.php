@@ -95,7 +95,7 @@ class Parser
     {
         $data = $this->_parse($this->string);
 
-        $keys = ['VSize', 'VFree'];
+        $keys = ['PSize', 'PFree'];
 
         $data = $this->_stripChars($data, $keys);
 
