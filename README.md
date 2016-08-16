@@ -1,5 +1,4 @@
 # lvm-parser
-[![Build Status](https://api.travis-ci.org/MrCrankHank/lvm-parser.svg)](https://api.travis-ci.org/MrCrankHank/lvm-parser.svg)
 [![Total Downloads](https://poser.pugx.org/mrcrankhank/lvm-parser/downloads)](https://packagist.org/packages/mrcrankhank/lvm-parser)
 [![Latest Stable Version](https://poser.pugx.org/mrcrankhank/lvm-parser/v/stable)](https://packagist.org/packages/mrcrankhank/lvm-parser)
 [![Latest Unstable Version](https://poser.pugx.org/mrcrankhank/lvm-parser/v/unstable)](https://packagist.org/packages/mrcrankhank/lvm-parser)
