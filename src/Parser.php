@@ -1,23 +1,69 @@
 <?php
 
+/**
+ * This file contains the Parser class
+ * It reads the output of pvs/vgs/lvs and converts it to a collection.
+ *
+ * The output *must* be generated with the following parameters:
+ * --units b --separator "|" --unbuffered
+ *
+ * You can also use the --select parameter to filter the data.
+ *
+ * PHP version 5.6
+ *
+ * @category Parser
+ * @package  MrCrankHank\LvmParser
+ * @author   Alexander Hank <mail@alexander-hank.de>
+ * @license  Apache License 2.0 http://www.apache.org/licenses/LICENSE-2.0.txt
+ * @link     null
+ */
+
 namespace MrCrankHank\LvmParser;
 
 use Illuminate\Support\Collection;
 use MrCrankHank\LvmParser\Exceptions\MethodNotFoundException;
 
+/**
+ * Class Parser
+ *
+ * @category Parser
+ * @package  MrCrankHank\LvmParser
+ * @author   Alexander Hank <mail@alexander-hank.de>
+ * @license  Apache License 2.0 http://www.apache.org/licenses/LICENSE-2.0.txt
+ * @link     null
+ */
 class Parser
 {
+    /**
+     * Separator
+     */
     const SEPARATOR = '|';
 
+    /**
+     * @var string
+     */
     private $string;
 
+    /**
+     * @var string
+     */
     private $type;
 
+    /**
+     * Parser constructor.
+     * @param $string
+     */
     public function __construct($string)
     {
         $this->string = $string;
     }
 
+    /**
+     * Call the appropriate function.
+     *
+     * @return mixed
+     * @throws MethodNotFoundException
+     */
     public function parse()
     {
         $method = '_get' . ucfirst($this->type);
@@ -29,6 +75,12 @@ class Parser
         }
     }
 
+    /**
+     * Set the input type.
+     *
+     * @param $type
+     * @return $this
+     */
     public function type($type)
     {
         $this->type = $type;
@@ -36,6 +88,13 @@ class Parser
         return $this;
     }
 
+    /**
+     * Parse the string.
+     *
+     * @param string $string
+     *
+     * @return Collection
+     */
     private function _parse($string)
     {
         $data = collect(explode("\n", $string));
@@ -69,6 +128,11 @@ class Parser
         return $data->values();
     }
 
+    /**
+     * Handle lvs input.
+     *
+     * @return Collection|mixed
+     */
     private function _getLvs()
     {
         $data = $this->_parse($this->string);
@@ -80,6 +144,11 @@ class Parser
         return $data;
     }
 
+    /**
+     * Handle vgs input.
+     *
+     * @return Collection|mixed
+     */
     private function _getVgs()
     {
         $data = $this->_parse($this->string);
@@ -91,6 +160,11 @@ class Parser
         return $data;
     }
 
+    /**
+     * Handle pvs input.
+     *
+     * @return Collection|mixed
+     */
     private function _getPvs()
     {
         $data = $this->_parse($this->string);
