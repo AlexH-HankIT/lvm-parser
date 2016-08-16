@@ -2,4 +2,7 @@
 
 # tests
 output:
-vgs --units g --separator "*" --unbuffered
+vgs --units b --separator "|" --unbuffered
+
+get only snapshots:
+lvs --units b --separator='|' --select "lv_attr=~[^s.*]" --unbuffered
