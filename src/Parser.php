@@ -102,7 +102,7 @@ class Parser
         // remove spaces and the ending/beginning
         $data->transform(function ($line, $key) {
             $line = preg_replace('/[\r\n]|[\r]+/', '', $line);
-            return trim($line, ' ');
+            return trim($line);
         });
 
         // delete warning messages from pvs/vgs/lvs output
