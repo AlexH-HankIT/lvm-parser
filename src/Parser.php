@@ -97,7 +97,7 @@ class Parser
      */
     private function _parse($string)
     {
-        $data = collect(explode("\n", $string));
+        $data = collect(explode("\n", trim($string)));
 
         // remove spaces and the ending/beginning
         $data->transform(function ($line, $key) {
